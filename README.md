@@ -1,16 +1,32 @@
-# twitify
+# Twitify
+Twitify online on [twitify.denizbora.net](https://twitify.denizbora.net/), auth your accounts and use easily.
+Shows your currently playing music on Spotify on your Twitter bio.
+ - Language: Dart
+ - Tech: Flutter
 
-Twitify online on twitify.denizbora.net, auth your accounts and use easily. Shows your currently playing music on Spotify on your Twitter bio.
+# Features
 
-## Getting Started
+ - Shows your currently playing music on Spotify on your Twitter bio.
+ 
+ 
+ # To Use
 
-This project is a starting point for a Flutter application.
+ - Edit user_controller.dart
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Project Idea
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-   Kağan Işıldak
+-   https://twitter.com/kaganisildak/status/1349380886886838272
+
+## Tech
+
+Twitify uses a number of modules to work properly:
+
+ - [Flutter](https://flutter.dev/)
+ - [Dart](https://dart.dev/)
+
+## Developer
+
+ - Deniz Bora KÜÇÜK
+ - [denizbora.net](https://denizbora.net/)
