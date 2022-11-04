@@ -1,6 +1,5 @@
 # Twitify
-Twitify online on [twitify.denizbora.net](https://twitify.denizbora.net/), auth your accounts and use easily.
-Shows your currently playing music on Spotify on your Twitter bio.
+Twitify shows your currently playing music on Spotify on your Twitter bio.
  - Language: Dart
  - Tech: Flutter
 
