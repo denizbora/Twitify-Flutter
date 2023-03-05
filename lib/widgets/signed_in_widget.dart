@@ -14,19 +14,20 @@ class SignedInWidget extends StatefulWidget {
 }
 
 class _SignedInWidgetState extends State<SignedInWidget> {
-  final UserController _controller = Get.put(UserController());
+  final UserController _controller = Get.find<UserController>();
   var tick = 10;
   @override
   void initState() {
     super.initState();
     countdown();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
-      width: Get.width * 0.7,
-      height: Get.height * 0.5,
+      width: Get.width * 0.8,
+      height: Get.height * 0.45,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: const Color.fromRGBO(244, 107, 167, 0.24413515406162467)),

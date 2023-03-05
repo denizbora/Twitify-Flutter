@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:get/get.dart';
@@ -11,17 +11,22 @@ import '../classes/user.dart';
 
 class UserController extends GetxController {
   MyUser usr = MyUser(isLogin: ValueNotifier<bool>(false));
+  final String twitterApiKey = "";
+  final String twitterSecretKey = "";
+  final String spotifyClientId = "";
+  final String redirectUrl = "";
+
 
   Future login() async {
     final twitterLogin = TwitterLogin(
       // Consumer API keys
-      apiKey: '',
+      apiKey: twitterApiKey,
       // Consumer API Secret keys
-      apiSecretKey: '',
+      apiSecretKey: twitterSecretKey,
       // Registered Callback URLs in TwitterApp
       // Android is a deeplink
       // iOS is a URLScheme
-      redirectURI: '',
+      redirectURI: redirectUrl
     );
     return await twitterLogin.login().then((value) async {
       switch (value.status) {
@@ -33,9 +38,9 @@ class UserController extends GetxController {
           usr.username = value.user!.screenName;
           final twitterApi = TwitterApi(
               client: TwitterClient(
-                  consumerKey: "",
+                  consumerKey: twitterApiKey,
                   consumerSecret:
-                      "",
+                      twitterSecretKey,
                   token: value.authToken!,
                   secret: value.authTokenSecret!));
           final userInfos = await twitterApi.client.get(Uri.https(
@@ -44,8 +49,8 @@ class UserController extends GetxController {
           usr.bio = valueMap["description"];
           usr.newBio = valueMap["description"];
           usr.spotifyKey = await SpotifySdk.getAccessToken(
-              clientId: "",
-              redirectUrl: "",
+              clientId: spotifyClientId,
+              redirectUrl: redirectUrl,
               scope: "user-read-currently-playing");
           usr.isLogin.value = true;
           changeBio();
@@ -61,13 +66,12 @@ class UserController extends GetxController {
       }
     });
   }
-
   Future changeBio() async {
     final twitterApi = TwitterApi(
         client: TwitterClient(
-            consumerKey: "",
+            consumerKey: twitterApiKey,
             consumerSecret:
-                "",
+                twitterSecretKey,
             token: usr.authToken!,
             secret: usr.authTokenSecret!));
     var url = Uri.https('api.spotify.com', '/v1/me/player/currently-playing');
@@ -93,9 +97,9 @@ class UserController extends GetxController {
   Future logout() async{
     final twitterApi = TwitterApi(
         client: TwitterClient(
-            consumerKey: "",
+            consumerKey: twitterApiKey,
             consumerSecret:
-            "",
+            twitterSecretKey,
             token: usr.authToken!,
             secret: usr.authTokenSecret!));
     await twitterApi.client.post(
